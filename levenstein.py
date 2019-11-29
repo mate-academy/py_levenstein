@@ -15,13 +15,10 @@ def dist(strng1: str, strng2: str) -> int:
     for i in range(strng2_len):
         if strng1[i] == strng2[i]:
             continue
-        else:
-            if strng1[i+1] == strng2[i]:
-                strng1 = strng1[:i] + strng1[i+1:]
-                result += 1
-            elif strng1[i+1] != strng2[i]:
-                result += 1
-    else:
-        result += len(strng1) - strng2_len
+        if strng1[i+1] == strng2[i]:
+            strng1 = strng1[:i] + strng1[i+1:]
+            result += 1
+        elif strng1[i+1] != strng2[i]:
+            result += 1
+    result += len(strng1) - strng2_len
     return result
-print(dist("java", "php"))
